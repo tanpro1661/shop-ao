@@ -1,15 +1,16 @@
 import React from "react";
 import Button from "../components/Button";
 import Header from "../components/Header";
+import Helmet from "../components/Helmet";
 
 const Contact = () => {
   return (
-    <>
+    <Helmet title="Liên Hệ">
       <Header />
-      <div className="pt-5">
-        <div className="contact">
-          <h3>Liên hệ với chúng tôi</h3>
-          <form className="contact__form">
+      <div className="contact">
+        <div className="contact__form">
+          <h3 className="contact__f">Liên hệ với chúng tôi</h3>
+          <form className="contact__form__item">
             <input type="text" placeholder="Tên" />
             <input type="text" placeholder="Email" />
             <textarea placeholder="Lời nhắn"></textarea>
@@ -18,7 +19,7 @@ const Contact = () => {
             </Button>
           </form>
         </div>
-        <div className="contact-support">
+        <div className="contact__support">
           <h3>Gọi ngay</h3>
           <span>+84 9649038991</span>
           <h3>Khu vực</h3>
@@ -32,7 +33,7 @@ const Contact = () => {
           </p>
         </div>
       </div>
-    </>
+    </Helmet>
   );
 };
 
