@@ -1,0 +1,48 @@
+.cartItem {
+  &__table {
+    &__head {
+      &__item {
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    &__body {
+      img {
+        @include mobile {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      @include mobile {
+        @include flex(center, center);
+        flex-direction: column;
+      }
+
+      &__title {
+        @include mobile {
+          display: none;
+        }
+      }
+
+      &__price {
+        @include mobile {
+          //   margin-right: 2rem;
+        }
+      }
+
+      &__quantity {
+        @include mobile {
+          // display: none;
+          padding-left: 1.5rem;
+        }
+      }
+
+      i {
+        margin-left: 2rem;
+      }
+    }
+  }
+}

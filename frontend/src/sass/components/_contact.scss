@@ -1,0 +1,40 @@
+.contact {
+  background-color: gray;
+  width: 80vw;
+
+  h3 {
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+  }
+
+  &__form {
+    @include flex(center, center);
+    flex-direction: column;
+    padding: 20px;
+
+    input {
+      padding: 10px;
+      width: 50%;
+      margin-bottom: 20px;
+      border: none;
+      outline: none;
+    }
+
+    textarea {
+      width: 50%;
+      margin-bottom: 20px;
+      padding-left: 10px;
+    }
+  }
+}
+
+.contact-support {
+    @include flex(center, center);
+    flex-direction: column;
+    margin-top: 100px;
+
+    span {
+        margin-bottom: 20px;
+    }
+}
