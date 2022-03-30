@@ -8,6 +8,7 @@ import { productRouter } from "./routes/productRoute.js";
 import { cartRouter } from "./routes/cartRoute.js";
 import { orderRouter } from "./routes/orderRoute.js";
 import { stripeRouter } from "./routes/stripe.js";
+import { accessoriesRouter } from "./routes/accessoriesRoute.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/accessories", accessoriesRouter);
 app.use("/api/carts", cartRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/checkout", stripeRouter);
@@ -37,8 +39,8 @@ app.use("/api/checkout", stripeRouter);
 // }
 
 app.get("/", (req, res) => {
-  res.send("APP is running")
-})
+  res.send("APP is running");
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);

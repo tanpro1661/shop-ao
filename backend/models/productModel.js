@@ -18,13 +18,13 @@ const productSchema = new mongoose.Schema(
     categorySlug: {
       type: String,
     },
-    color: {
+    colors: {
       type: Array,
     },
     slug: {
       type: String,
     },
-    size: {
+    sizes: {
       type: Array,
     },
     path: {

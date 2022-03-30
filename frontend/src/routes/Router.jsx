@@ -1,18 +1,20 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Home from "../pages/Home";
-import Catalog from "../pages/Catalog";
-import Cart from "../pages/Cart";
-import Products from "../pages/Products";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Admin from "../pages/Admin";
-import AddProduct from "../pages/AddProduct";
-import EditProduct from "../pages/EditProduct";
-import Accessories from "../pages/Accessories";
-import Contact from "../pages/Contact";
-import ProductView from "../pages/ProductView";
+import Home from "../pages/Home/Home";
+import Catalog from "../pages/Catalog/Catalog";
+import Cart from "../pages/Cart/Cart";
+import Products from "../pages/Product/Products";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
+import Admin from "../pages/Admin/Admin";
+import AddProduct from "../pages/Add/AddProduct";
+import EditProduct from "../pages/Edit/EditProduct";
+import Accessories from "../pages/Accessory/Accessories";
+import Contact from "../pages/Contact/Contact";
+import ProductView from "../pages/Product/ProductView";
+import Accessory from "../components/Accessory/Accessory";
+import AccessoryView from "../pages/Accessory/AccessoryView";
 
 const Router = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -42,16 +44,18 @@ const Router = () => {
       <Route path="/catalog/" element={<Catalog />} />
       <Route path="/catalog/:slug" element={<ProductView />} />
       <Route path="/:slug" element={<ProductView />} />
+      <Route path="/accessory/:slug" element={<AccessoryView />} />
 
       <Route path="/cart" element={<Cart />} />
       <Route path="/product/:productid" element={<Products />} />
+      
       {!user ? (
         <Route path="/login" element={<Login />} />
       ) : (
         <Route path="*" element={<Navigate to="/" />} />
       )}
       <Route path="/register" element={<Register />} />
-      <Route path="/accessories" element={<Accessories />} />
+      <Route path="/accessory" element={<Accessories />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );

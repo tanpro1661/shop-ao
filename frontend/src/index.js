@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./assets/boxicons-2.0.7/css/boxicons.min.css";
-import Layout from "./components/Layout";
+import Layout from "./components/Layout/Layout";
 import "./sass/index.scss";
 import "antd/dist/antd.min.css";
 import { persistor, store } from "./redux/store";
