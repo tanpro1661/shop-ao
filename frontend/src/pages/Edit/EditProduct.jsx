@@ -7,7 +7,7 @@ import Loading from "../../components/Loading/Loading";
 import Header from "../../components/Header/Header";
 
 const EditProduct = () => {
-  const { productid } = useParams();
+  const { productId } = useParams();
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
   const { loading } = useSelector((state) => state.alert);
@@ -18,10 +18,10 @@ const EditProduct = () => {
     if (products.length === 0) {
       dispatch(getAllProducts());
     } else {
-      setProduct(products.find((item) => item._id === productid));
+      setProduct(products.find((item) => item._id === productId));
       setTotalProducts(products);
     }
-  }, [products, dispatch, productid]);
+  }, [products, dispatch, productId]);
 
   const onFinish = (values) => {
     values._id = product._id;

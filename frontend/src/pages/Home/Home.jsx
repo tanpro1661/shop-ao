@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Helmet from "../../components/Helmet/Helmet";
 import HeroSlider from "../../components/Slide/HeroSlider";
 import heroSliderData from "../../assets/fake-data/heroSliderData";
-import Section, { SectionTitle, SectionBody } from "../../components/Section/Section";
+import Section, {
+  SectionTitle,
+  SectionBody,
+} from "../../components/Section/Section";
 import Card from "../../components/Card/Card";
 import policy from "../../assets/fake-data/card";
 import Grid from "../../components/Grid/Grid";
@@ -31,7 +34,6 @@ const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-console.log(products);
   return (
     <div>
       {loading && <Loading />}

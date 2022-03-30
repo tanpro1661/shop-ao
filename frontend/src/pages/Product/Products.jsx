@@ -3,16 +3,17 @@ import Helmet from "../../components/Helmet/Helmet";
 import { Row, Col } from "antd";
 import Header from "../../components/Header/Header";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../../redux/callAPI";
+import { getAllProducts} from "../../redux/callAPI";
 import { useParams } from "react-router-dom";
 import { addItemToCart } from "../../redux/cartSlice";
 import number from "../../utils/number";
 
 const Product = () => {
-  const { productid } = useParams();
+  const { productId } = useParams();
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const [totalProducts, setTotalProducts] = useState([]);
+
   const [product, setProduct] = useState({});
 
   const [color, setColor] = useState("");
@@ -20,12 +21,12 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
 
   const check = () => {
-    if (color === undefined) {
+    if (color === "") {
       alert("Vui lòng chọn màu sắc!");
       return false;
     }
 
-    if (size === undefined) {
+    if (size === "") {
       alert("Vui lòng chọn kích cỡ!");
       return false;
     }
@@ -40,10 +41,10 @@ const Product = () => {
     if (products.length === 0) {
       dispatch(getAllProducts());
     } else {
-      setProduct(products.find((item) => item._id === productid));
+      setProduct(products.find((item) => item._id === productId));
       setTotalProducts(products);
     }
-  }, [products, dispatch, productid]);
+  }, [products, dispatch, productId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

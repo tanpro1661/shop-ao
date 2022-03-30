@@ -9,7 +9,7 @@ const mainNav = [
     path: "/",
   },
   { display: "Sản Phẩm", path: "/catalog" },
-  { display: "Phụ Kiện", path: "/accessory" },
+  { display: "Phụ Kiện", path: "/accessories" },
   { display: "Liên Hệ", path: "/contact" },
 ];
 

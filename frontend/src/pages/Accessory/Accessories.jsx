@@ -1,34 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Accessory from "../../components/Accessory/Accessory";
 import Grid from "../../components/Grid/Grid";
 import Header from "../../components/Header/Header";
 import Helmet from "../../components/Helmet/Helmet";
-import Section, { SectionBody, SectionTitle } from "../../components/Section/Section";
+import Section, {
+  SectionBody,
+  SectionTitle,
+} from "../../components/Section/Section";
 import { getAllAccessories } from "../../redux/callAPI";
 
 const Accessories = () => {
-  const { accessoryid } = useParams();
   const { accessories } = useSelector((state) => state.accessories);
   const dispatch = useDispatch();
-  const [accessory, setAccessory] = useState({});
   const [totalAccessories, setTotalAccessories] = useState([]);
 
   useEffect(() => {
-    if (accessories.length === 0) {
-      dispatch(getAllAccessories());
-    } else {
-      setAccessory(accessories.find((item) => item._id === accessoryid));
-      setTotalAccessories(accessories);
-    }
-  }, [dispatch, accessories, accessoryid]);
+    dispatch(getAllAccessories());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setTotalAccessories(accessories);
+  }, [accessories]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  console.log(accessoryid);
   return (
     <Helmet title="Phụ Kiện">
       <Header />

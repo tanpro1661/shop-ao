@@ -15,7 +15,7 @@ const AccessoryCard = (props) => {
         <div className="accessory-card__price">{number(props.price)}</div>
       </Link>
       <div className="accessory-card__btn">
-        <Link to={`/product/${props.id}`}>
+        <Link to={`/accessory/${props.id}`}>
           <Button size="sm" icon="bx bx-cart" animate={true}>
             Mua
           </Button>

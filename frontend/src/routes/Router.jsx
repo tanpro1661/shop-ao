@@ -13,8 +13,9 @@ import EditProduct from "../pages/Edit/EditProduct";
 import Accessories from "../pages/Accessory/Accessories";
 import Contact from "../pages/Contact/Contact";
 import ProductView from "../pages/Product/ProductView";
-import Accessory from "../components/Accessory/Accessory";
+// import Accessory from "../components/Accessory/Accessory";
 import AccessoryView from "../pages/Accessory/AccessoryView";
+import Accessory from "../pages/Accessory/Accessory";
 
 const Router = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -37,25 +38,26 @@ const Router = () => {
         <Route path="*" element={<Navigate to="/" />} />
       )}
       {user && isAdmin ? (
-        <Route path="/editproduct/:productid" element={<EditProduct />} />
+        <Route path="/editproduct/:productId" element={<EditProduct />} />
       ) : (
         <Route path="*" element={<Navigate to="/" />} />
       )}
       <Route path="/catalog/" element={<Catalog />} />
       <Route path="/catalog/:slug" element={<ProductView />} />
       <Route path="/:slug" element={<ProductView />} />
-      <Route path="/accessory/:slug" element={<AccessoryView />} />
+      <Route path="/product/:productId" element={<Products />} />
 
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/product/:productid" element={<Products />} />
-      
+      <Route path="/accessories" element={<Accessories />} />
+      <Route path="/accessories/:slug" element={<AccessoryView />} />
+      <Route path="/accessory/:accessoryId" element={<Accessory />} />
+
       {!user ? (
         <Route path="/login" element={<Login />} />
       ) : (
         <Route path="*" element={<Navigate to="/" />} />
       )}
       <Route path="/register" element={<Register />} />
-      <Route path="/accessory" element={<Accessories />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );
