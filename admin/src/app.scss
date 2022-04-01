@@ -1,0 +1,28 @@
+.app.dark {
+  background-color: black;
+  color: white;
+
+  .sidebar {
+    background-color: black;
+    color: white;
+  }
+
+  .navbar {
+    &__wrapper {
+      &__search {
+        .icon {
+          color: black;
+        }
+      }
+
+      &__items {
+        &__item {
+          &:nth-child(2) {
+            color: yellow;
+          }
+        }
+      }
+    }
+    
+  }
+}
