@@ -12,7 +12,7 @@ const Product = (props) => {
   const dispatch = useDispatch();
   return (
     <div className="product-card">
-      <Link to={props.slug}>
+      <Link to={`/home/${props.slug}`}>
         <div className="product-card__image">
           <img src={props.img01} alt="" />
           <img src={props.img02} alt="" />

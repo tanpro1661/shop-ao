@@ -60,9 +60,9 @@ const Product = () => {
       <Header />
       <Helmet title="Product">
         {totalProducts.length > 0 && (
-          <Row className="d-flex align-items-center">
+          <Row className="">
             <Col lg={12} sm={24}>
-              <div className="products__image p-5">
+              <div className="products__image ">
                 <img src={product.image01} alt="" />
               </div>
             </Col>

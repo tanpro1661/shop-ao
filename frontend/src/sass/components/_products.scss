@@ -4,6 +4,9 @@
   }
 
   &__image {
+    width: 70%;
+    padding-top: 2rem;
+    margin: auto;
     @include tablet {
       margin-left: 4rem;
     }
@@ -77,8 +80,8 @@
     &__input {
       text-align: center;
       // @include mobile {
-        width: 50%;
-        // text-align: center;
+      width: 50%;
+      // text-align: center;
       // }
     }
 

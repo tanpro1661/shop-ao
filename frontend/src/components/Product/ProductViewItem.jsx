@@ -7,7 +7,7 @@ import { LeftOutlined } from "@ant-design/icons";
 
 const ProductViewItem = ({ product }) => {
   const [descExpand, setDescExpand] = useState(false);
-  const [previewImg, setPreviewImg] = useState(product.image01);
+  const [previewImg, setPreviewImg] = useState(product?.image01);
 
   if (product === undefined)
     product = {
