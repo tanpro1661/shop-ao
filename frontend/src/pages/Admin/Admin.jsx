@@ -34,7 +34,7 @@ const Admin = () => {
     <div>
       {loading && <Loading />}
       <Header admin={admin} />
-      <Helmet title="Trang Chủ">
+      <Helmet title="Quản trị viên">
         <HeroSlider
           data={heroSliderData}
           control={true}

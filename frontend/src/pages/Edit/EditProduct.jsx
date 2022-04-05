@@ -80,6 +80,13 @@ const EditProduct = () => {
               >
                 <Input />
               </Form.Item>
+              <Form.Item
+                name="desc"
+                label="Description"
+                rules={[{ required: true }]}
+              >
+                <Input />
+              </Form.Item>
 
               <div className="text-center">
                 <button className="p-2 w-25 border-0 bg-blue color-white">

@@ -28,17 +28,20 @@ userRouter.post("/login", async (req, res) => {
     if (user) {
       const validPassword = await bcrypt.compare(password, user.password);
       if (validPassword) {
-        const token = jwt.sign(
-          {
-            id: user._id,
-            isAdmin: user.isAdmin,
-          },
-          process.env.JWT_SECRET,
-          {
+        const userObj = { id: user._id, isAdmin: user.isAdmin };
+        const generateAccessToken = (userObj) => {
+          return jwt.sign(userObj, process.env.JWT_SECRET, {
             expiresIn: "3d",
-          }
-        );
-        res.status(200).json({ auth: true, token: token, ...user._doc });
+          });
+        };
+        const token = generateAccessToken(userObj);
+        const refreshToken = jwt.sign(userObj, process.env.JWT_REFRESH_SECRET);
+        res.status(200).json({
+          auth: true,
+          token: token,
+          refreshToken: refreshToken,
+          ...user._doc,
+        });
       } else {
         res.status(400).json({ auth: false, error: "Wrong password" });
       }

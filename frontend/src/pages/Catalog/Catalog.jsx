@@ -9,7 +9,7 @@ import Button from "../../components/Button/Button";
 import InfinityList from "../../components/Infinity/InfinityList";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { getAllProducts } from "../../redux/callAPI";
+import { getAllAccessories, getAllProducts } from "../../redux/callAPI";
 
 const Catalog = () => {
   const { products } = useSelector((state) => state.products);
@@ -24,6 +24,7 @@ const Catalog = () => {
 
   useEffect(() => {
     dispatch(getAllProducts());
+    dispatch(getAllAccessories());
   }, [dispatch, filter]);
 
   useEffect(() => {

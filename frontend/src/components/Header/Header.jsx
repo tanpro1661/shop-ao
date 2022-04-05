@@ -15,7 +15,7 @@ const mainNav = [
 
 const menu = (
   <Menu>
-    <Menu.Item>
+    <Menu.Item >
       <a href="/">Trang chủ</a>
     </Menu.Item>
     <Menu.Item>
@@ -26,7 +26,7 @@ const menu = (
     </Menu.Item>
     <Menu.Item
       onClick={() => {
-        localStorage.removeItem("user");
+        localStorage.clear();
         window.location.href = "/login";
       }}
     >
@@ -38,7 +38,7 @@ const menu = (
 const Header = ({ admin }) => {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
-  const headerRef = useRef(null);
+  const headerRef = useRef("");
   const user = JSON.parse(localStorage.getItem("user"));
   const isAdmin = user?.isAdmin;
   const { quantity } = useSelector((state) => state.cart);
@@ -49,9 +49,9 @@ const Header = ({ admin }) => {
         document.body.scrollTop > 100 ||
         document.documentElement.scrollTop > 100
       ) {
-        headerRef.current?.classList.add("shrink");
+        headerRef.current.classList.add("shrink");
       } else {
-        headerRef.current?.classList.remove("shrink");
+        headerRef.current.classList.remove("shrink");
       }
     });
     return () => {

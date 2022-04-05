@@ -15,7 +15,8 @@ const Cart = () => {
   const { total } = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const dispatch = useDispatch();
-  const KEY = process.env.REACT_APP_STRIPE_KEY;
+  const KEY = process.env.REACT_APP_STRIPE_KEY
+  console.log(KEY);
 
   const onToken = (token) => {
     setStripeToken(token);

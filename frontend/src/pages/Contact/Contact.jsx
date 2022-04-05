@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import Helmet from "../../components/Helmet/Helmet";
 
 const Contact = () => {
+  const [send, setSend] = useState(false);
+  useEffect((e) => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleSend = (e) => {
+    e.preventDefault();
+    setSend(!send);
+    setTimeout(() => {
+      window.location.href = '/'
+    }, 3000)
+  };
+
   return (
     <Helmet title="Liên Hệ">
       <Header />
@@ -15,9 +28,9 @@ const Contact = () => {
               <input type="text" placeholder="Tên" />
               <input type="text" placeholder="Email" />
               <textarea placeholder="Lời nhắn"></textarea>
-              <Button size="sm" type="submit">
-                Submit
-              </Button>
+
+              <button onClick={handleSend} className="btn">Submit</button>
+              {send && <p className="success">Thành công, cảm ơn bạn đã ủng hộ Shop!</p>}
             </form>
           </div>
           <div className="contact__support">

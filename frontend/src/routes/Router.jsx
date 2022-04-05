@@ -18,7 +18,6 @@ import Accessory from "../pages/Accessory/Accessory";
 const Router = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const isAdmin = user?.isAdmin;
-  console.log(user);
   return (
     <Routes>
       <Route path="/">
@@ -27,7 +26,7 @@ const Router = () => {
         ) : (
           <Route index element={<Navigate to="login" />} />
         )}
-        <Route path="home/:slug" element={<ProductView />} />
+        <Route path="slug/:slug" element={<ProductView />} />
         {user && isAdmin ? (
           <Route path="admin" element={<Admin />} />
         ) : (
