@@ -16,7 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/callAPI";
 
 const Admin = () => {
-  const admin = JSON.parse(localStorage.getItem("user")).isAdmin;
+  // const admin = JSON.parse(localStorage.getItem("user")).isAdmin;
+  const admin = true
   const { products } = useSelector((state) => state.products);
   const { loading } = useSelector((state) => state.alert);
   const dispatch = useDispatch();

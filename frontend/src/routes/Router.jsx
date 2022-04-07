@@ -27,17 +27,17 @@ const Router = () => {
           <Route index element={<Navigate to="login" />} />
         )}
         <Route path="slug/:slug" element={<ProductView />} />
-        {user && isAdmin ? (
+        {user ? (
           <Route path="admin" element={<Admin />} />
         ) : (
           <Route path="*" element={<Navigate to="/" />} />
         )}
-        {user && isAdmin ? (
+        {user ? (
           <Route path="add" element={<AddProduct />} />
         ) : (
           <Route path="*" element={<Navigate to={"/"} />} />
         )}
-        {user && isAdmin ? (
+        {user ? (
           <Route path="editproduct/:productId" element={<EditProduct />} />
         ) : (
           <Route path="*" element={<Navigate to={"/"} />} />

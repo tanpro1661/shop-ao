@@ -1,10 +1,11 @@
 import axios from "axios";
 import { message } from "antd";
+import jsCookie from "js-cookie";
 
 import { getAllAccessory } from "./accessoriesSlice";
 import { getAllProduct } from "./productSlice";
 import { loading } from "./alertSlice";
-import { publicRequest, userRequest } from "../request";
+import { publicRequest, userRequest } from "../utils/axiosInstance";
 
 export const getAllProducts = () => async (dispatch) => {
   dispatch(loading());
@@ -129,7 +130,8 @@ export const userLogin = (reqObj) => async (dispatch) => {
   try {
     const res = await publicRequest.post("/users/login", reqObj);
     localStorage.setItem("user", JSON.stringify(res.data));
-    localStorage.setItem("token", res.data.token);
+    jsCookie.set("access", res.data.accessToken);
+    jsCookie.set("refresh", res.data.refreshToken);
     message.success("Login Success");
     setTimeout(() => {
       window.location.href = "/";
