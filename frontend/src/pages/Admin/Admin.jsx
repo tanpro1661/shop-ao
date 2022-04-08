@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Helmet from "../../components/Helmet/Helmet";
 import HeroSlider from "../../components/Slide/HeroSlider";
 import heroSliderData from "../../assets/fake-data/heroSliderData";
-import Section, { SectionTitle, SectionBody } from "../../components/Section/Section";
+import Section, {
+  SectionTitle,
+  SectionBody,
+} from "../../components/Section/Section";
 import Card from "../../components/Card/Card";
 import policy from "../../assets/fake-data/card";
 import Grid from "../../components/Grid/Grid";
@@ -17,7 +20,7 @@ import { getAllProducts } from "../../redux/callAPI";
 
 const Admin = () => {
   // const admin = JSON.parse(localStorage.getItem("user")).isAdmin;
-  const admin = true
+  const admin = true;
   const { products } = useSelector((state) => state.products);
   const { loading } = useSelector((state) => state.alert);
   const dispatch = useDispatch();
@@ -75,7 +78,12 @@ const Admin = () => {
         <Section>
           <SectionBody>
             <Link to="/catalog">
-              <img src={banner} alt="" />
+              <div className="banner">
+                <img
+                  src="https://www.ohpunstore.com/wp-content/uploads/2019/12/2Hoodie-Banner1.jpg"
+                  alt=""
+                />
+              </div>
             </Link>
           </SectionBody>
         </Section>

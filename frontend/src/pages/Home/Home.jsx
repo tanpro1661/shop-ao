@@ -58,6 +58,7 @@ const Home = () => {
         </Section>
         <Section>
           <SectionTitle className="border-bottom">Top Sản Phẩm</SectionTitle>
+
           <SectionBody>
             <Grid col={4} mdCol={2} smCol={1} gap={20}>
               {totalProducts.slice(0, 4).map((item, index) => (
@@ -77,11 +78,12 @@ const Home = () => {
         <Section>
           <SectionBody>
             <Link to="/">
-              <img
-                src="https://www.ohpunstore.com/wp-content/uploads/2019/12/2Hoodie-Banner1.jpg"
-                alt=""
-                className=""
-              />
+              <div className="banner">
+                <img
+                  src="https://www.ohpunstore.com/wp-content/uploads/2019/12/2Hoodie-Banner1.jpg"
+                  alt=""
+                />
+              </div>
             </Link>
           </SectionBody>
         </Section>

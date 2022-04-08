@@ -16,20 +16,21 @@ const mainNav = [
 
 const menu = (
   <Menu>
-    <Menu.Item >
+    <Menu.Item key={0}>
       <a href="/">Trang chủ</a>
     </Menu.Item>
-    <Menu.Item>
+    <Menu.Item key={1}>
       <a href="/catalog">Sản phẩm</a>
     </Menu.Item>
-    <Menu.Item>
+    <Menu.Item key={2}>
       <a href="/admin">Admin</a>
     </Menu.Item>
     <Menu.Item
+      key={3}
       onClick={() => {
-        localStorage.clear()
-        jsCookie.remove("access")
-        jsCookie.remove("refresh")
+        localStorage.clear();
+        jsCookie.remove("access");
+        jsCookie.remove("refresh");
         window.location.href = "/login";
       }}
     >
@@ -52,9 +53,9 @@ const Header = ({ admin }) => {
         document.body.scrollTop > 100 ||
         document.documentElement.scrollTop > 100
       ) {
-        headerRef.current.classList.add("shrink");
+        headerRef.current?.classList.add("shrink");
       } else {
-        headerRef.current.classList.remove("shrink");
+        headerRef.current?.classList.remove("shrink");
       }
     });
     return () => {
@@ -72,11 +73,15 @@ const Header = ({ admin }) => {
         <div className="header__logo">
           <Link to="/">
             {admin ? (
-              <h1 style={{ color: "tomato", fontWeight: "bold" }}>
-                FLASH admin
-              </h1>
+              <div className="header__logo__banner">
+                <h1 style={{ color: "tomato", fontWeight: "bold" }}>
+                  FLASH admin
+                </h1>
+              </div>
             ) : (
-              <h1 style={{ color: "tomato", fontWeight: "bold" }}>FLASH</h1>
+              <div className="header__logo__banner">
+                <h1 style={{ color: "tomato", fontWeight: "bold" }}>FLASH</h1>
+              </div>
             )}
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Accessory from "../../components/Accessory/Accessory";
 import Grid from "../../components/Grid/Grid";
 import Header from "../../components/Header/Header";
@@ -51,11 +51,13 @@ const Accessories = () => {
       <Section>
         <SectionBody>
           <Link to="/">
-            <img
-              src="https://bizweb.dktcdn.net/100/269/201/themes/604642/assets/slide-img3.jpg?1621590443633"
-              alt=""
-              className=""
-            />
+            <div className="banner">
+              <img
+                src="https://bizweb.dktcdn.net/100/269/201/themes/604642/assets/slide-img3.jpg?1621590443633"
+                alt=""
+                className=""
+              />
+            </div>
           </Link>
         </SectionBody>
       </Section>

@@ -41,7 +41,7 @@ const Product = (props) => {
         <Popconfirm
           title="Are you want to delete this product?"
           onConfirm={() => {
-            dispatch(deleteProduct({ productid: props.id }));
+            dispatch(deleteProduct({ productId: props.id }));
           }}
           okText="Yes"
           cancelText="No"

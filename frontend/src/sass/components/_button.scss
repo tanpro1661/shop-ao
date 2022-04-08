@@ -8,7 +8,6 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-
   @include mobile {
     font-size: 1rem;
   }
@@ -44,9 +43,11 @@
 
   &-sm {
     font-size: 1rem;
+  }
+
+  &-sm &__txt {
+    padding: 0.7rem 1.5rem;
+  }
 }
 
-&-sm &__txt {
-    padding: 0.7rem 1.5rem;
-}
-}
+
