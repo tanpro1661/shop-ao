@@ -27,7 +27,7 @@ const generateAccessToken = (user) => {
     { id: user._id, isAdmin: user.isAdmin },
     process.env.JWT_SECRET,
     {
-      expiresIn: "10s",
+      expiresIn: "5s",
     }
   );
 };
@@ -88,7 +88,7 @@ userRouter.post("/refresh", (req, res) => {
 
 userRouter.post("/logout", verifyToken, (req, res) => {
   const refreshToken = req.body.token;
-  refreshTokens.filter((token) => token !== refreshToken);
+  refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
   res.status(200).json("Logged out Success!");
 });
 

@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Dropdown, Button } from "antd";
 import { useSelector } from "react-redux";
-import jsCookie from "js-cookie";
 
 const mainNav = [
   {
@@ -29,8 +28,6 @@ const menu = (
       key={3}
       onClick={() => {
         localStorage.clear();
-        jsCookie.remove("access");
-        jsCookie.remove("refresh");
         window.location.href = "/login";
       }}
     >
@@ -150,11 +147,11 @@ const Header = ({ admin }) => {
               >
                 {user && isAdmin ? (
                   <Button>
-                    <span style={{color: "black"}}>{user?.name} (admin)</span>
+                    <span style={{ color: "black" }}>{user?.name} (admin)</span>
                   </Button>
                 ) : (
                   <Button>
-                    <span style={{color: "black"}}>{user?.name}</span>
+                    <span style={{ color: "black" }}>{user?.name}</span>
                   </Button>
                 )}
               </Dropdown>
