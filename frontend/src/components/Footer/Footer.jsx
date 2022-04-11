@@ -42,8 +42,8 @@ const footerCustomerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-black color-white">
-      <div className="container p-5 ">
+    <footer className=" ">
+      <div className=" bg-black color-white container p-5 ">
         <Grid col={4} mdCol={2} smCol={1} gap={10}>
           <div>
             <div className="footer__title">Tổng đài hỗ trợ</div>
@@ -82,7 +82,7 @@ const Footer = () => {
                   style={{
                     fontSize: "40px",
                     fontWeight: "bold",
-                    color: "tomato",
+                    color: "white",
                   }}
                 >
                   FLASH

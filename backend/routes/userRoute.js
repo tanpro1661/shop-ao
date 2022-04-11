@@ -2,6 +2,7 @@ import express from "express";
 import { User } from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { verifyToken } from "./verifyToken.js";
 const userRouter = express.Router();
 
 userRouter.post("/register", async (req, res) => {
@@ -26,7 +27,7 @@ const generateAccessToken = (user) => {
     { id: user._id, isAdmin: user.isAdmin },
     process.env.JWT_SECRET,
     {
-      expiresIn: "1d",
+      expiresIn: "20s",
     }
   );
 };
@@ -41,9 +42,7 @@ const generateRefreshToken = (user) => {
 userRouter.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await User.findOne({
-      username,
-    });
+    const user = await User.findOne({ username });
     if (user) {
       const validPassword = await bcrypt.compare(password, user.password);
       if (validPassword) {
@@ -74,7 +73,7 @@ userRouter.post("/refresh", (req, res) => {
     return res.status(403).json("Refresh token is not valid!");
 
   jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, user) => {
-    if (err) res.status(403);
+    err && console.log(err);
     refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
 
     const newAccessToken = generateAccessToken(user);
@@ -85,6 +84,12 @@ userRouter.post("/refresh", (req, res) => {
       .status(200)
       .json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
   });
+});
+
+userRouter.post("/logout", verifyToken, (req, res) => {
+  const refreshToken = req.body.token;
+  refreshTokens.filter((token) => token !== refreshToken);
+  res.status(200).json("Logged out Success!");
 });
 
 export { userRouter };

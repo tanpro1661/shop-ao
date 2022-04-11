@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Accessory from "../../components/Accessory/Accessory";
 import Grid from "../../components/Grid/Grid";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer"
 import Helmet from "../../components/Helmet/Helmet";
 import Section, {
   SectionBody,
@@ -97,6 +98,7 @@ const Accessories = () => {
           </Grid>
         </SectionBody>
       </Section>
+      <Footer />
     </Helmet>
   );
 };

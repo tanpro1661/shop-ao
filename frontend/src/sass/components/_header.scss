@@ -49,15 +49,17 @@
 
     &__banner {
       --border-width: 3px;
-      padding: 0 5px;
-      border-width: 5px;
+      padding: 0 3rem;
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
-      height: 50px;
-      background: #fff;
+      height: 100%;
+      background: black;
+
+      span {
+        font-size: 25px;
+        font-weight: bold;
+        color: #fff;
+      }
 
       &::after {
         position: absolute;
@@ -80,7 +82,7 @@
         );
         background-size: 300% 300%;
         background-position: 0 50%;
-        // border-radius: calc(2 * var(--border-width));
+        border-radius: 5px;
         animation: moveGradient 4s alternate infinite;
       }
     }
@@ -108,13 +110,12 @@
       }
     }
 
-    &__item.active {
+    &__item.active span {
       font-weight: 600;
       color: $main-color;
-      text-decoration: underline;
     }
 
-    &__item:hover {
+    &__item:hover span {
       color: $main-color;
     }
 
@@ -149,11 +150,12 @@
     &__left {
       &__close {
         display: none;
+        color: white;
       }
 
       @include tablet {
         flex-direction: column;
-        background-color: $main-bg;
+        background-color: black;
         position: absolute;
         left: 0;
         top: 0;
@@ -190,6 +192,12 @@
         display: block;
         font-size: 2.5rem;
         cursor: pointer;
+      }
+    }
+
+    &__item {
+      span {
+        color: #fff;
       }
     }
   }

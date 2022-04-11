@@ -74,13 +74,11 @@ const Header = ({ admin }) => {
           <Link to="/">
             {admin ? (
               <div className="header__logo__banner">
-                <h1 style={{ color: "tomato", fontWeight: "bold" }}>
-                  FLASH admin
-                </h1>
+                <span>FLASH admin</span>
               </div>
             ) : (
               <div className="header__logo__banner">
-                <h1 style={{ color: "tomato", fontWeight: "bold" }}>FLASH</h1>
+                <span>FLASH</span>
               </div>
             )}
           </Link>
@@ -145,16 +143,19 @@ const Header = ({ admin }) => {
                 </i>
               </Link>
             </div>
-
             <div className="header__menu__item header__menu__right__item">
               <Dropdown
                 overlay={menu}
                 className="header__menu__item header__menu__right__item__dropdown"
               >
                 {user && isAdmin ? (
-                  <Button>{user?.name} (admin)</Button>
+                  <Button>
+                    <span style={{color: "black"}}>{user?.name} (admin)</span>
+                  </Button>
                 ) : (
-                  <Button>{user?.name}</Button>
+                  <Button>
+                    <span style={{color: "black"}}>{user?.name}</span>
+                  </Button>
                 )}
               </Dropdown>
             </div>
