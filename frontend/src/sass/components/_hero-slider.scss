@@ -101,7 +101,7 @@
       &__btn button {
         display: block;
         transform: translateY(-100%);
-        transition: transform 0.5s ease;
+        transition: transform 0.5s ease-out;
       }
     }
 
